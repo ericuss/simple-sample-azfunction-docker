@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  azfunction:
+    image: ${DOCKER_REGISTRY-}azfunction:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: AzFunction/Dockerfile
+    environment:
+      - MyOptions__MyCustomSetting=Foobar33
+    ports:
+      - "5080:80"
+      - "7071:7071"
